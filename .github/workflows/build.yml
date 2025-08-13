@@ -6,7 +6,7 @@ on:
       name:
         description: "Name"
         required: true
-        default: "acc"
+        default: "debian"
 
 jobs:
   build-and-push:
@@ -29,6 +29,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ${{ github.workspace }}/${{ github.event.inputs.name }}
-          file: ${{ github.workspace }}/${{ github.event.inputs.name }}/Dockerfile
+          file: ${{ github.workspace }}/image/${{ github.event.inputs.name }}/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.event.inputs.name }}-latest
