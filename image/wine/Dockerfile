@@ -9,7 +9,7 @@ ENV         DEBIAN_FRONTEND=noninteractive
 
 RUN         apt update \
 				&& apt upgrade -y \
-				&& apt install -y tar curl gnupg2 lib32gcc-s1 libgcc1 lib32tinfo6 lib32z1 lib32stdc++6 iproute2 gdb libsdl1.2debian libfontconfig1 telnet net-tools netcat-traditional tzdata \
+				&& apt install -y tar curl gnupg2 libgcc1 iproute2 gdb libsdl1.2debian libfontconfig1 telnet net-tools netcat-traditional tzdata \
 				&& useradd -m -d /home/container container
 
 RUN         curl -fsSL https://dl.winehq.org/wine-builds/winehq.key -o /tmp/winehq.key \
