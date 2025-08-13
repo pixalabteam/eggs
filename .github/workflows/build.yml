@@ -5,12 +5,12 @@ on:
     - cron: "0 0 1 * *"
   push:
     branches:
-      - master
+      - main
     paths:
-      - games/**
+      - image/**
 jobs:
   push:
-    name: "games:${{ matrix.image }}"
+    name: "image:${{ matrix.image }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
