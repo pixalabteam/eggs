@@ -1,4 +1,4 @@
-name: build games
+name: Build Push
 on:
   workflow_dispatch:
   schedule:
@@ -10,14 +10,14 @@ on:
       - games/**
 jobs:
   push:
-    name: "games:${{ matrix.game }}"
+    name: "games:${{ matrix.image }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        game:
-          - source
-          - rust
+        image:
+          - debian
+          - wine
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
@@ -30,9 +30,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
-          context: ./image/${{ matrix.game }}
-          file: ./image/${{ matrix.game }}/Dockerfile
+          context: ./image/${{ matrix.image }}
+          file: ./image/${{ matrix.image }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/pixalabteam/image:${{ matrix.game }}
+            ghcr.io/pixalabteam/image:${{ matrix.image }}
