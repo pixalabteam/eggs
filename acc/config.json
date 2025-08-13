@@ -1,0 +1,24 @@
+{
+    "cfg/configuration.json": {
+        "parser": "json",
+        "find": {
+            "udpPort": "{{server.build.default.port}}",
+            "tcpPort": "{{server.build.default.port}}",
+            "registerToLobby": "{{server.build.env.IS_PUBLIC_SERVER}}"
+        }
+    },
+    "cfg/event.json": {
+        "parser": "json",
+        "find": {
+            "track": "{{server.build.env.TRACK}}"
+        }
+    },
+    "cfg/settings.json": {
+        "parser": "json",
+        "find": {
+            "serverName": "{{server.build.env.HOSTNAME}}",
+            "password": "{{server.build.env.PASSWORD}}",
+            "adminPassword": "{{server.build.env.ADM_PASSWORD}}"
+        }
+    }
+}

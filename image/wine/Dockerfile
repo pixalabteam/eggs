@@ -17,7 +17,7 @@ RUN         curl -fsSL https://dl.winehq.org/wine-builds/winehq.key -o /tmp/wine
 				&& apt-key add /tmp/winehq.key \
 				&& echo "deb https://dl.winehq.org/wine-builds/debian/ bookworm main" > /etc/apt/sources.list.d/wine.list \
 				&& apt update \
-				&& apt install -y --install-recommends winehq-stable
+				&& apt install -y --no-install-recommends winehq-stable
 
 USER        container
 ENV         USER=container HOME=/home/container
