@@ -28,7 +28,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ${{ github.workspace }}/${{ github.event.inputs.name }}
+          context: ${{ github.workspace }}/image/${{ github.event.inputs.name }}
           file: ${{ github.workspace }}/image/${{ github.event.inputs.name }}/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.event.inputs.name }}-latest
