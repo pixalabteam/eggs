@@ -4,7 +4,8 @@
         "find": {
             "udpPort": "{{server.build.default.port}}",
             "tcpPort": "{{server.build.default.port}}",
-            "registerToLobby": "{{server.build.env.IS_PUBLIC_SERVER}}"
+            "registerToLobby": "{{server.build.env.IS_PUBLIC_SERVER}}",
+            "ignorePrematureDisconnects": 0
         }
     },
     "cfg/event.json": {
@@ -18,7 +19,8 @@
         "find": {
             "serverName": "{{server.build.env.HOSTNAME}}",
             "password": "{{server.build.env.PASSWORD}}",
-            "adminPassword": "{{server.build.env.ADM_PASSWORD}}"
+            "adminPassword": "{{server.build.env.ADM_PASSWORD}}",
+            "formationLapType": 3
         }
     }
 }
