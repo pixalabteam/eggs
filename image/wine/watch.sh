@@ -15,20 +15,10 @@ if [ "$AUTO_SEND_RESULT" = "1" ] || [ "$AUTO_SEND_RESULT" = "true" ]; then
         do
             FILEPATH="$WATCH_DIR/$NEWFILE"
             echo -e "New file detected: $FILEPATH. Sending to SimCap"
-            
-            # Đọc nội dung file JSON
-            if [ -f "$FILEPATH" ]; then
-                FILE_CONTENT=$(cat "$FILEPATH")
-                # Tạo JSON payload với data field
-                JSON_PAYLOAD=$(jq -n --arg data "$FILE_CONTENT" '{data: $data}')
-                
-                curl -X POST "$API_URL" \
-                    -H "Content-Type: application/json" \
-                    -d "$JSON_PAYLOAD"
-                echo -e "File $FILEPATH content sent to SimCap."
-            else
-                echo -e "File $FILEPATH not found or not readable."
-            fi
+            curl -X POST "$API_URL" \
+                -F "file=@${FILEPATH}" \
+                -H "Content-Type: multipart/form-data"
+            echo -e "File $FILEPATH sent to SimCap."
         done
     ) &
     echo -e "inotifywait watcher is running in background (PID $!)."
