@@ -27,6 +27,8 @@ COPY        ./entrypoint.sh /entrypoint.sh
 COPY        ./watch.sh /watch.sh
 COPY        ./start.sh /start.sh
 
-RUN 	   chmod +x /entrypoint.sh /watch.sh /start.sh
+RUN 	   chmod +x /entrypoint.sh
+RUN         chmod +x /watch.sh
+RUN         chmod +x /start.sh
 
 CMD         [ "/start.sh" ]
