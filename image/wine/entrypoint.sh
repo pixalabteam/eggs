@@ -90,4 +90,4 @@ else
     done
 fi
 
-wine ./accServer.exe
+wine /home/container/accServer.exe
