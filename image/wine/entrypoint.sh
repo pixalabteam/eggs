@@ -71,7 +71,7 @@ if [ "$AUTO_SEND_RESULT" != "1" ] && [ "$AUTO_SEND_RESULT" != "true" ]; then
 else
     WATCH_DIR="/home/container/results/"
     API_URL="https://simcap.net/api/session/acc"  # Đổi sang API của bạn
-    echo "AUTO_SEND_RESULT is enabled. Watching directory: $WATCH_DIR"
+    echo -e "AUTO_SEND_RESULT is enabled. Watching directory: $WATCH_DIR"
     inotifywait -m -e create --format "%f" "$WATCH_DIR" | while read NEWFILE
     do
         FILEPATH="$WATCH_DIR/$NEWFILE"
