@@ -89,3 +89,5 @@ else
         echo "File $FILEPATH sent to SimCap."
     done
 fi
+
+wine ./accServer.exe
