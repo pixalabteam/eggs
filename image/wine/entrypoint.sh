@@ -70,3 +70,21 @@ fi
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
 # shellcheck disable=SC2086
 exec env ${PARSED}
+
+# Kiểm tra biến môi trường AUTO_SEND_RESULT
+if [ "$AUTO_SEND_RESULT" != "1" ] && [ "$AUTO_SEND_RESULT" != "true" ]; then
+    echo "AUTO_SEND_RESULT is not enabled. Exiting script."
+else
+    WATCH_DIR="/home/container/results/"
+    API_URL="https://simcap.net/api/session/acc"  # Đổi sang API của bạn
+
+    inotifywait -m -e create --format "%f" "$WATCH_DIR" | while read NEWFILE
+    do
+        FILEPATH="$WATCH_DIR/$NEWFILE"
+        echo "Phát hiện file mới: $FILEPATH"
+        # Gửi file qua API dạng multipart/form-data
+        curl -X POST "$API_URL" \
+            -F "file=@${FILEPATH}" \
+            -H "Content-Type: multipart/form-data"
+    done
+fi
