@@ -20,5 +20,5 @@ if [ "$AUTO_SEND_RESULT" = "1" ] || [ "$AUTO_SEND_RESULT" = "true" ]; then
     ) &
     echo -e "inotifywait watcher is running in background (PID $!)."
 else
-    echo    "AUTO_SEND_RESULT is not enabled. Skipping watcher."
+    echo -e "AUTO_SEND_RESULT is not enabled. Skipping watcher."
 fi

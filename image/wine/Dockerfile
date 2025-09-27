@@ -23,7 +23,10 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-COPY        ./entrypoint.sh /entrypoint.sh
+COPY        ./entrypoint.sh /entrypoint.sh 
 COPY        ./watch.sh /watch.sh
 COPY        ./start.sh /start.sh
+
+RUN 	   chmod +x /entrypoint.sh /watch.sh /start.sh
+
 CMD         [ "/start.sh" ]
