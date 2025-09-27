@@ -65,12 +65,6 @@ else
     echo -e "Not updating game server as auto update was set to 0. Starting Server"
 fi
 
-# Display the command we're running in the output, and then execute it with the env
-# from the container itself.
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
-# shellcheck disable=SC2086
-exec env ${PARSED}
-
 # Kiểm tra biến môi trường AUTO_SEND_RESULT
 if [ "$AUTO_SEND_RESULT" != "1" ] && [ "$AUTO_SEND_RESULT" != "true" ]; then
     echo -e "AUTO_SEND_RESULT is not enabled. Exiting script."
@@ -90,4 +84,10 @@ else
     done
 fi
 
-wine /home/container/accServer.exe
+wine /mnt/server/accServer.exe
+
+# Display the command we're running in the output, and then execute it with the env
+# from the container itself.
+printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
+# shellcheck disable=SC2086
+exec env ${PARSED}
