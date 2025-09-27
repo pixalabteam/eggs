@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/bin/bash /entrypoint.sh
-/bin/bash /watch.sh
+./watch.sh
+./entrypoint.sh
