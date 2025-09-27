@@ -73,7 +73,7 @@ exec env ${PARSED}
 
 # Kiểm tra biến môi trường AUTO_SEND_RESULT
 if [ "$AUTO_SEND_RESULT" != "1" ] && [ "$AUTO_SEND_RESULT" != "true" ]; then
-    echo "AUTO_SEND_RESULT is not enabled. Exiting script."
+    echo -e "AUTO_SEND_RESULT is not enabled. Exiting script."
 else
     WATCH_DIR="/home/container/results/"
     API_URL="https://simcap.net/api/session/acc"  # Đổi sang API của bạn
@@ -81,12 +81,12 @@ else
     inotifywait -m -e create --format "%f" "$WATCH_DIR" | while read NEWFILE
     do
         FILEPATH="$WATCH_DIR/$NEWFILE"
-        echo "New file detected: $FILEPATH. Sending to SimCap"
+        echo -e "New file detected: $FILEPATH. Sending to SimCap"
         # Gửi file qua API dạng multipart/form-data
         curl -X POST "$API_URL" \
             -F "file=@${FILEPATH}" \
             -H "Content-Type: multipart/form-data"
-        echo "File $FILEPATH sent to SimCap."
+        echo -e "File $FILEPATH sent to SimCap."
     done
 fi
 
