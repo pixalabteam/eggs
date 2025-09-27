@@ -11,7 +11,7 @@ if [ "$AUTO_SEND_RESULT" = "1" ] || [ "$AUTO_SEND_RESULT" = "true" ]; then
     API_URL="https://simcap.net/api/session/acc"
     echo -e "AUTO_SEND_RESULT is enabled. Watching directory: $WATCH_DIR"
     (
-        inotifywait -m -e create --format "%f" "$WATCH_DIR" | while read NEWFILE &
+        inotifywait -m -e create --format "%f" "$WATCH_DIR" | while read NEWFILE
         do
             FILEPATH="$WATCH_DIR/$NEWFILE"
             echo -e "New file detected: $FILEPATH. Sending to SimCap"
