@@ -15,10 +15,20 @@ if [ "$AUTO_SEND_RESULT" = "1" ] || [ "$AUTO_SEND_RESULT" = "true" ]; then
         do
             FILEPATH="$WATCH_DIR/$NEWFILE"
             echo -e "New file detected: $FILEPATH. Sending to SimCap"
-            curl -X POST "$API_URL" \
-                -F "file=@${FILEPATH}" \
-                -H "Content-Type: multipart/form-data"
-            echo -e "File $FILEPATH sent to SimCap."
+            
+            # Đọc file UTF-16LE và convert sang UTF-8
+            if [ -f "$FILEPATH" ]; then
+                FILE_CONTENT=$(iconv -f UTF-16LE -t UTF-8 "$FILEPATH" 2>/dev/null || cat "$FILEPATH")
+                # Escape JSON và tạo payload
+                JSON_PAYLOAD=$(printf '{"data":"%s"}' "$(echo "$FILE_CONTENT" | sed 's/\\/\\\\/g; s/"/\\"/g; s/$/\\n/g' | tr -d '\n' | sed 's/\\n$//')")
+                
+                curl -X POST "$API_URL" \
+                    -H "Content-Type: application/json" \
+                    -d "$JSON_PAYLOAD"
+                echo -e "File $FILEPATH content sent to SimCap."
+            else
+                echo -e "File $FILEPATH not found or not readable."
+            fi
         done
     ) &
     echo -e "inotifywait watcher is running in background (PID $!)."
