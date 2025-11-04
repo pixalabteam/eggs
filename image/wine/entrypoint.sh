@@ -55,5 +55,5 @@ PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat
 # from the container itself.
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
 
-exec wine /home/container/accServer.exe
+exec /usr/bin/wine /home/container/accServer.exe
 exec env ${PARSED}
