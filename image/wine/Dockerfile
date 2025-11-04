@@ -20,12 +20,12 @@ RUN         curl -fsSL https://dl.winehq.org/wine-builds/winehq.key -o /tmp/wine
 				&& apt install -y --no-install-recommends winehq-stable
 
 COPY        ./*.sh /
-RUN chmod +x /entrypoint.sh
-RUN chmod +x /watch.sh
-RUN chmod +x /start.sh
+RUN			chmod +x /entrypoint.sh
+RUN			chmod +x /watch.sh
+RUN			chmod +x /start.sh
 
 USER        container
-ENV         USER=container HOME=/home/container
+ENV         USER=container HOME=/home/container WINEPREFIX=/home/container/
 WORKDIR     /home/container
 
 CMD         [ "/start.sh" ]
