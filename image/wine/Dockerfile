@@ -40,6 +40,9 @@ RUN         echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
                 && locale-gen en_US.UTF-8 \
                 && apt-get clean \
                 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Add wine to PATH
+ENV         PATH="/opt/wine-stable/bin:$PATH"
 ENV         LANG=en_US.UTF-8 \
                 LANGUAGE=en_US:en \
                 LC_ALL=en_US.UTF-8
