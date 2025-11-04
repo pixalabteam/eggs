@@ -51,8 +51,8 @@ if [ "${STEAM_USER}" == "" ]; then
 else
     echo -e "user set to ${STEAM_USER}"
 fi
-rm -rf ~/.wine
-WINEARCH=win64 wine /home/container/accServer.exe
+
+wine /home/container/accServer.exe
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
