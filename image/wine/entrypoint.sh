@@ -36,23 +36,20 @@ export INTERNAL_IP
 # Switch to the container's working directory
 cd /home/container || exit 1
 
+# Initialize wine prefix if it doesn't exist
+if [ ! -d "$WINEPREFIX" ]; then
+    echo "Initializing Wine prefix..."
+    wineboot --init
+    # Wait for wine to finish initialization
+    while pgrep -x wine >/dev/null; do sleep 1; done
+    # Configure wine to not show GUI dialogs
+    winetricks --unattended corefonts vcrun2019
+fi
+
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
 # variable format of "${VARIABLE}" before evaluating the string and automatically
 # replacing the values.
 PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
-
-## just in case someone removed the defaults.
-if [ "${STEAM_USER}" == "" ]; then
-    echo -e "steam user is not set.\n"
-    echo -e "Using anonymous user.\n"
-    STEAM_USER=anonymous
-    STEAM_PASS=""
-    STEAM_AUTH=""
-else
-    echo -e "user set to ${STEAM_USER}"
-fi
-
-wine /home/container/accServer.exe
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
