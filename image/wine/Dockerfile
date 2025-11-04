@@ -55,7 +55,6 @@ RUN         chmod +x /entrypoint.sh /watch.sh /start.sh
 USER        container
 ENV         USER=container \
             HOME=/home/container \
-            WINEPREFIX=/home/container/.wine \
             WINEARCH=win64 \
             DISPLAY=:0
 WORKDIR     /home/container
