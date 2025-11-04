@@ -25,7 +25,7 @@ RUN			chmod +x /watch.sh
 RUN			chmod +x /start.sh
 
 USER        container
-ENV         USER=container HOME=/home/container WINEPREFIX=/home/container/
+ENV         USER=container HOME=/home/container WINEPREFIX=/home/container/.wine
 WORKDIR     /home/container
 
 CMD         [ "/start.sh" ]
