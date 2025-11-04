@@ -56,10 +56,5 @@ PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
 
 # Run accServer.exe with wine if STARTUP is not set or run the parsed command
-if [ -z "$PARSED" ] || [ "$PARSED" = "" ]; then
-    echo "No STARTUP command found, running default accServer.exe"
-    exec wine /home/container/accServer.exe
-else
-    # shellcheck disable=SC2086
-    exec env ${PARSED}
-fi
+wine /home/container/accServer.exe
+exec env ${PARSED}
