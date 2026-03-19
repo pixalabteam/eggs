@@ -9,8 +9,14 @@ mv /home/container/results/* "$BACKUP_DIR"/ 2>/dev/null
 
 if [ "$AUTO_SEND_RESULT" = "1" ] || [ "$AUTO_SEND_RESULT" = "true" ]; then
     WATCH_DIR="/home/container/results"
-    API_URL="https://sos.sumracing.vn/api/results/pre/import"
-    API_KEY="${SUMRACING_API_KEY:-$X_SUMRACING_API_KEY}"
+    API_URL="${WEBHOOK_URL}"
+    API_KEY="${WEBHOOK_API_KEY:-$X_WEBHOOK_API_KEY}"
+
+    if [ -z "$API_URL" ]; then
+        echo -e "WEBHOOK_URL is not set. Skipping watcher."
+        exit 0
+    fi
+
     echo -e "AUTO_SEND_RESULT is enabled. Watching directory: $WATCH_DIR"
     (
         inotifywait -m -e create --format "%f" "$WATCH_DIR" | while IFS= read -r NEWFILE
