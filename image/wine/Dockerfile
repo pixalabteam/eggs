@@ -27,6 +27,8 @@ ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./*.sh /
+# Chuyển về root để chmod rồi quay lại user container
+USER        root
 RUN         chmod +x /entrypoint.sh /watch.sh /start.sh
 USER        container
 
