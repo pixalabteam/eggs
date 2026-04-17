@@ -4,7 +4,6 @@ LABEL       author="Pixalab" maintainer="admin@pixalab.co"
 
 ENV         DEBIAN_FRONTEND=noninteractive
 # Tắt log Wine để sạch console
-# ENV         WINEDEBUG=-all
 ENV         WINEPREFIX=/home/container/.wine
 ENV         WINEARCH=win64
 ENV         DISPLAY=:0
@@ -27,11 +26,7 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-RUN         winecfg > /dev/null 2>&1
-
 COPY        ./*.sh /
-# Chuyển về root để chmod rồi quay lại user container
-USER        root
 RUN         chmod +x /entrypoint.sh /watch.sh /start.sh
 USER        container
 
