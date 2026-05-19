@@ -1,0 +1,66 @@
+{
+  "game_type": "GameModeType_RACE_WEEKEND",
+  "event": {
+    "track": "Sebring International Raceway",
+    "layout": "GP",
+    "event_name": "GP Race",
+    "track_length": "5954"
+  },
+  "export_json": false,
+  "game_config": {
+    "practice_duration": 900,
+    "practice_time_of_day": {
+      "year": 2024,
+      "month": 8,
+      "day": 15,
+      "hour": 16,
+      "minute": 0,
+      "second": 0,
+      "time_multiplier": 1
+    },
+    "practice_overtime_waiting_next_session": 10,
+    "practice_max_wait_to_box": 10,
+    "qualify_duration": 900,
+    "qualify_time_of_day": {
+      "year": 2024,
+      "month": 8,
+      "day": 15,
+      "hour": 16,
+      "minute": 0,
+      "second": 0,
+      "time_multiplier": 1
+    },
+    "qualify_overtime_waiting_next_session": 10,
+    "qualify_max_wait_to_box": 10,
+    "warmup_duration": 1200,
+    "warmup_time_of_day": {
+      "year": 2024,
+      "month": 8,
+      "day": 15,
+      "hour": 16,
+      "minute": 0,
+      "second": 0,
+      "time_multiplier": 1
+    },
+    "warmup_overtime_waiting_next_session": 10,
+    "warmup_max_wait_to_box": 10,
+    "race_duration": 300,
+    "race_duration_type": "GameModeSelectionDuration_TIME",
+    "race_time_of_day": {
+      "year": 2024,
+      "month": 8,
+      "day": 15,
+      "hour": 16,
+      "minute": 0,
+      "second": 0,
+      "time_multiplier": 4
+    },
+    "race_overtime_waiting_next_session": 10,
+    "race_max_wait_to_box": 10,
+    "min_waiting_for_players": 10,
+    "max_waiting_for_players": 30
+  },
+  "weather_type": "GameModeSelectionWeatherType_CLEAR",
+  "weather_behaviour": "GameModeSelectionWeatherBehaviour_DYNAMIC",
+  "initial_grip": "InitialGrip_GREEN"
+}

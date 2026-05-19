@@ -1,0 +1,27 @@
+{
+  "game_type": "GameModeType_PRACTICE",
+  "event": {
+    "track": "Nurburgring",
+    "layout": "Touristenfahrten",
+    "event_name": "Touristenfahrten Time Attack",
+    "track_length": "19300"
+  },
+  "export_json": false,
+  "game_config": {
+    "practice_duration": 32000,
+    "practice_time_of_day": {
+      "year": 2024,
+      "month": 8,
+      "day": 15,
+      "hour": 11,
+      "minute": 0,
+      "second": 0,
+      "time_multiplier": 4
+    },
+    "practice_overtime_waiting_next_session": 10,
+    "practice_max_wait_to_box": 10
+  },
+  "weather_type": "GameModeSelectionWeatherType_CLEAR",
+  "weather_behaviour": "GameModeSelectionWeatherBehaviour_DYNAMIC",
+  "initial_grip": "InitialGrip_OPTIMUM"
+}

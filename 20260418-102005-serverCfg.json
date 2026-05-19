@@ -1,0 +1,458 @@
+{
+  "server_tcp_listener_port": 9700,
+  "server_udp_listener_port": 9700,
+  "server_tcp_internal_port": 9700,
+  "server_udp_internal_port": 9700,
+  "server_http_port": 8080,
+  "server_name": "Vu EVO Server",
+  "max_players": 32,
+  "cycle": true,
+  "allowed_cars_list_full": [
+    {
+      "car_name": "preset_695b_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_75t_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gtam_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_sprintgta_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mln_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_a110s_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_a290b_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_r8gt4_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_rs3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_rs6_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_sq_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m2_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m2_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m2csr_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m2csr_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m3evoiii_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_e46csl_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m4csl_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m4gt3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_m8c_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "ks_caterham_485_csr_mech_3",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "ks_caterham_485_csr_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "ks_caterham_485_csr_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "ks_caterham_acmd_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_zl1_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_zl1_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_dalexp_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_dalsc_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_dalsc_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_dalsc_mech_3",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_288gto_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_296gt3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_296gtb_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_296gtb_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_f488ce_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_sp3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_f2004_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_f40lm_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_sf25_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_escortrs_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_msggt3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_nsxr_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_s2000ap1_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_i30n_hb_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_i30n_hb_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_cntqv_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_stevo2_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_sto_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_sto_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_hfevoii_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_hfevoii_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_emira_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_emira_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_exigev6_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_exigev6_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mcgt2_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mx5na_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mx5na_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mx5ndcup_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mx5ndcup_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_amggt2_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_190e_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_jcs_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_jcs_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_t16_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gt4csmr_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_718gt4rs_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_718gt4rs_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992c_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992c_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992c_mech_3",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992ren_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992ren_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gt3rs_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gt3rs_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_964_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_964_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_r5gt_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gr86_mech_3",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gr86_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_gr86_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_ae86_mech_4",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_ae86_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_ae86_mech_3",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_ae86_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_supramkiv_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_supramkiv_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_mk8gti_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    }
+  ],
+  "driver_password": "ace123",
+  "spectator_password": "",
+  "admin_password": "admin123",
+  "type": "MultiplayerServerListSessionType_RANKED",
+  "entry_list_path": "",
+  "results_path": ""
+}

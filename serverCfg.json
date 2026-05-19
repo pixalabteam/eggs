@@ -1,0 +1,43 @@
+{
+  "server_tcp_listener_port": 9700,
+  "server_udp_listener_port": 9700,
+  "server_tcp_internal_port": 9700,
+  "server_udp_internal_port": 9700,
+  "server_http_port": 8080,
+  "server_name": "vu EVO Server",
+  "max_players": 32,
+  "cycle": true,
+  "allowed_cars_list_full": [
+    {
+      "car_name": "preset_m4gt3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_296gt3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_msggt3_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992ren_mech_1",
+      "ballast": 0,
+      "restrictor": 0.0
+    },
+    {
+      "car_name": "preset_992ren_mech_2",
+      "ballast": 0,
+      "restrictor": 0.0
+    }
+  ],
+  "driver_password": "ace123",
+  "spectator_password": "",
+  "admin_password": "admin123",
+  "type": "MultiplayerServerListSessionType_RANKED",
+  "entry_list_path": "",
+  "results_path": ""
+}
