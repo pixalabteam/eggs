@@ -24,6 +24,12 @@ RUN			chmod +x /entrypoint.sh
 
 USER        container
 ENV         USER=container HOME=/home/container
+ENV         WINEPREFIX=/opt/wineprefix
+ENV         WINEDEBUG=-all
+ENV         WINEDLLOVERRIDES=mscoree,mshtml=
 WORKDIR     /home/container
+
+# Pre-initialize Wine prefix at build time to avoid slow first-run init
+RUN         DISPLAY= wineboot --init && wineserver --wait
 
 CMD         [ "/entrypoint.sh" ]
