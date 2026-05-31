@@ -53,13 +53,16 @@ else
 fi
 
 # Link all read-only entries from /ace into working dir (except cfg)
-for entry in /ace/*; do
-    [[ "$(basename "$entry")" == "cfg" ]] && continue
-    ln -sfn "$entry" "/home/container/$(basename "$entry")"
-done
+if [ -d /ace ]; then
+    for entry in /ace/*; do
+        [ -e "$entry" ] || continue
+        [[ "$(basename "$entry")" == "cfg" ]] && continue
+        ln -sfn "$entry" "/home/container/$(basename "$entry")"
+    done
+fi
 
 # Copy cfg from /ace if not already present (cfg needs to be writable)
-[ ! -d /home/container/cfg ] && cp -r /ace/cfg /home/container/cfg
+[ -d /ace/cfg ] && [ ! -d /home/container/cfg ] && cp -r /ace/cfg /home/container/cfg
 
 # Ensure output directories exist
 mkdir -p /home/container/log /home/container/results /home/container/championships
