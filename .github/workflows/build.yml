@@ -18,6 +18,7 @@ jobs:
         image:
           - debian
           - wine
+          - ace
     permissions:
       contents: read
       packages: write

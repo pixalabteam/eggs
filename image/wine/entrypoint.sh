@@ -34,7 +34,7 @@ INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
 export INTERNAL_IP
 
 # Switch to the container's working directory
-cd /home/container || exit 1
+cd /home/pixalab || exit 1
 
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
 # variable format of "${VARIABLE}" before evaluating the string and automatically
@@ -52,10 +52,22 @@ else
     echo -e "user set to ${STEAM_USER}"
 fi
 
-wine /home/container/accServer.exe
+# Link all read-only entries from /ace into working dir (except cfg)
+for entry in /ace/*; do
+    [[ "$(basename "$entry")" == "cfg" ]] && continue
+    ln -sfn "$entry" "/home/pixalab/$(basename "$entry")"
+done
+
+# Copy cfg from /ace if not already present (cfg needs to be writable)
+[ ! -d /home/pixalab/cfg ] && cp -r /ace/cfg /home/pixalab/cfg
+
+# Ensure output directories exist
+mkdir -p /home/pixalab/log /home/pixalab/results /home/pixalab/championships
+
+cd /home/pixalab && taskset -c 0-$(( $(nproc) - 1 )) wine aceServer.exe -configjson cfg/server.json -seasonjson cfg/seasons.json
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
+printf "\033[1m\033[33mpixalab@pixalab~ \033[0m%s\n" "$PARSED"
 # shellcheck disable=SC2086
 exec env ${PARSED}
