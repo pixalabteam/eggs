@@ -52,21 +52,6 @@ else
     echo -e "user set to ${STEAM_USER}"
 fi
 
-# Link all read-only entries from /ace into working dir (except cfg)
-if [ -d /ace ]; then
-    for entry in /ace/*; do
-        [ -e "$entry" ] || continue
-        [[ "$(basename "$entry")" == "cfg" ]] && continue
-        ln -sfn "$entry" "/home/container/$(basename "$entry")"
-    done
-fi
-
-# Copy cfg from /ace if not already present (cfg needs to be writable)
-[ -d /ace/cfg ] && [ ! -d /home/container/cfg ] && cp -r /ace/cfg /home/container/cfg
-
-# Ensure output directories exist
-mkdir -p /home/container/log /home/container/results /home/container/championships
-
 cd /home/container && taskset -c 0-$(( $(nproc) - 1 )) wine aceServer.exe -configjson cfg/server.json -seasonjson cfg/seasons.json
 
 # Display the command we're running in the output, and then execute it with the env
