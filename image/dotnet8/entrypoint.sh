@@ -52,6 +52,19 @@ else
     echo -e "user set to ${STEAM_USER}"
 fi
 
+cat > /home/container/config.json <<'EOF'
+{
+  "AutoStartWorldName": "World",
+  "AutoCreateAndLoadWorld": true,
+  "AutoCreateWorldSize": 1,
+  "AutoCreateWorldSeed": null,
+  "Password": "",
+  "Port": 8050,
+  "MaxPlayers": 8,
+  "EnableCheats": false
+}
+EOF
+
 export LD_LIBRARY_PATH="$HOME/romestead-server:$HOME/romestead-server/linux64:$LD_LIBRARY_PATH"
 cd /home/container && taskset -c 0-$(( $(nproc) - 1 )) romestead dotnet Server.dll
 
