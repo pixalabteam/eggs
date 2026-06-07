@@ -30,7 +30,11 @@ TZ=${TZ:-UTC}
 export TZ
 
 # Set environment variable that holds the Internal Docker IP
-INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
+if command -v ip >/dev/null 2>&1; then
+    INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
+else
+    INTERNAL_IP=$(hostname -i | awk '{print $1}')
+fi
 export INTERNAL_IP
 
 # Switch to the container's working directory
@@ -52,21 +56,7 @@ else
     echo -e "user set to ${STEAM_USER}"
 fi
 
-cat > /home/container/config.json <<'EOF'
-{
-  "AutoStartWorldName": "World",
-  "AutoCreateAndLoadWorld": true,
-  "AutoCreateWorldSize": 1,
-  "AutoCreateWorldSeed": null,
-  "Password": "",
-  "Port": 8050,
-  "MaxPlayers": 8,
-  "EnableCheats": false
-}
-EOF
-
-export LD_LIBRARY_PATH="$HOME/romestead-server:$HOME/romestead-server/linux64:$LD_LIBRARY_PATH"
-cd /home/container && taskset -c 0-$(( $(nproc) - 1 )) romestead dotnet Server.dll
+export LD_LIBRARY_PATH="$HOME:$HOME/runtimes/linux64:$LD_LIBRARY_PATH"
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.

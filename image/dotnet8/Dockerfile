@@ -9,7 +9,7 @@ ENV         DEBIAN_FRONTEND=noninteractive
 
 RUN         apt update \
 				&& apt upgrade -y \
-				&& apt install -y --no-install-recommends curl gnupg ca-certificates tzdata \
+				&& apt install -y --no-install-recommends curl gnupg ca-certificates tzdata iproute2 util-linux \
 				&& curl -fsSL https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb \
 				&& dpkg -i /tmp/packages-microsoft-prod.deb \
 				&& rm -f /tmp/packages-microsoft-prod.deb \
