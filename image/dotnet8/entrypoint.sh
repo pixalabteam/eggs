@@ -30,11 +30,7 @@ TZ=${TZ:-UTC}
 export TZ
 
 # Set environment variable that holds the Internal Docker IP
-if command -v ip >/dev/null 2>&1; then
-    INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
-else
-    INTERNAL_IP=$(hostname -i | awk '{print $1}')
-fi
+INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
 export INTERNAL_IP
 
 # Switch to the container's working directory
@@ -44,6 +40,17 @@ cd /home/container || exit 1
 # variable format of "${VARIABLE}" before evaluating the string and automatically
 # replacing the values.
 PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
+
+## just in case someone removed the defaults.
+if [ "${STEAM_USER}" == "" ]; then
+    echo -e "steam user is not set.\n"
+    echo -e "Using anonymous user.\n"
+    STEAM_USER=anonymous
+    STEAM_PASS=""
+    STEAM_AUTH=""
+else
+    echo -e "user set to ${STEAM_USER}"
+fi
 
 ## just in case someone removed the defaults.
 if [ "${STEAM_USER}" == "" ]; then
