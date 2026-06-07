@@ -18,7 +18,6 @@ jobs:
         image:
           - debian
           - wine
-          - ace
           - dotnet8
     permissions:
       contents: read
