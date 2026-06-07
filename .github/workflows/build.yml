@@ -19,6 +19,7 @@ jobs:
           - debian
           - wine
           - ace
+          - dotnet8
     permissions:
       contents: read
       packages: write
