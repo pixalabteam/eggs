@@ -54,14 +54,16 @@ fi
 
 echo -e "Auto update is set to ${AUTO_UPDATE}"
 ## just in case someone removed the defaults.
-if [[ "${AUTO_UPDATE}" == "true" ]] || [[ "${AUTO_UPDATE}" == "1" ]]; then
+if [[ "${AUTO_UPDATE}" == "true" ]] || [[ "${AUTO_UPDATE}" == "1" ]] || [[ "${AUTO_UPDATE}" == true ]] || [[ "${AUTO_UPDATE}" == 1 ]]; then
     echo -e "Auto update is enabled. Checking for updates...\n"
     ## install game using steamcmd + fix for the 'missing configuration' steamcmd bug
     steamcmd +force_install_dir /home/container +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +@sSteamCmdForcePlatformType linux +app_info_print ${SRCDS_APPID} +app_update ${SRCDS_APPID} validate +quit
     echo -e "Auto update complete.\n"
 fi
 
-export LD_LIBRARY_PATH="$HOME:$HOME/runtimes/linux64:$LD_LIBRARY_PATH"
+# print the dotnet version on startup
+printf "\033[1m\033[33mcontainer@pelican~ \033[0mdotnet --version\n"
+dotnet --version
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
