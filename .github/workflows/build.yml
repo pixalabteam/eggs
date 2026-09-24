@@ -9,16 +9,40 @@ on:
     paths:
       - image/**
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      images: ${{ steps.images.outputs.images }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: images
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" != "push" ]; then
+            echo 'images=["debian","wine","dotnet8"]' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          images=$(git diff --name-only "$BEFORE_SHA" "$SHA" -- image/ \
+            | awk -F/ '$1 == "image" && ($2 == "debian" || $2 == "wine" || $2 == "dotnet8") {print $2}' \
+            | sort -u \
+            | jq -Rsc 'split("\n") | map(select(length > 0))')
+          echo "images=$images" >> "$GITHUB_OUTPUT"
+
   push:
     name: "image:${{ matrix.image }}"
     runs-on: ubuntu-latest
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.images != '[]' }}
     strategy:
       fail-fast: false
       matrix:
-        image:
-          - debian
-          - wine
-          - dotnet8
+        image: ${{ fromJSON(needs.detect-changes.outputs.images) }}
     permissions:
       contents: read
       packages: write
